@@ -19,7 +19,7 @@ function print_usage() {
     cat <<EOF
 Super Telnet: telnet for everything based on awesome socat
 
-Usage: ${0} [-h|-4|-6|-g|-s|-u|-t] <host> <port>
+Usage: ${0} [-h|-4|-6|-g|-s|-u|-t|-H <filename>] <host> <port>
     -h      Help.
     -a      Guess IP version for specified protocol
     -4      IPv4
