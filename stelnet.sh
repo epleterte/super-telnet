@@ -57,38 +57,6 @@ shift $(($OPTIND-1))
 [ $# -eq 2 ] && port="${2}"
 host="${1}"
 
-case $ipv in 
-    4)
-        case $proto in 
-            tcp)
-                atype="TCP4" ;;
-            udp)
-                atype="UDP4" ;;
-            sctp)
-                atype="SCTP4-CONNECT" ;;
-        esac ;;
-    6)
-        case $proto in 
-            tcp)
-                atype="TCP6" ;;
-            udp)
-                atype="UDP6" ;;
-            sctp)
-                atype="SCTP6-CONNECT" ;;
-        esac ;;
-    a)
-        case $proto in 
-            tcp)
-                atype="TCP" ;;
-            udp)
-                atype="UDP" ;;
-            sctp)
-                atype="SCTP-CONNECT" ;;
-        esac ;;
-    *)
-        echo "> error! unknown ip version specified." ;;
-esac
-
 case $proto in 
     "tcp"|"udp")
         case $ipv in
