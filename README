@@ -1,1 +1,8 @@
 telnet using socat
+
+readline and history support
+
+supports protocols:
+    * udp, udp6
+    * tcp, tcp6
+    * sctp, sctp6
