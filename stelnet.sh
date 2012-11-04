@@ -5,6 +5,16 @@
 # socat is awesome!
 # Christian Bryn <chr.bryn@gmail.com> 2012
 
+## defaults
+verbose="false"
+port=23
+proto="tcp"
+ipv=4
+# defaut address type
+atype="TCP4"
+socat_opts=""
+history_file="${HOME}/.stelnet_history"
+
 function print_usage() {
     cat <<EOF
 Super Telnet: telnet for everything based on awesome socat
@@ -17,21 +27,12 @@ Usage: ${0} [-h|-4|-6|-g|-s|-u|-t] <host> <port>
     -s      Protocol SCTP
     -t      Protocol TCP (default)
     -u      Protocol UDP
+    -H      History file (default ${history_file} )
 
 EOF
 }
 
-## defaults
-verbose="false"
-port=23
-proto="tcp"
-ipv=4
-# defaut address type
-atype="TCP4"
-socat_opts=""
-history_file="${HOME}/.stelnet_history"
-
-while getopts h46stua o
+while getopts h46stuaH o
 do
     case $o in
         h)
@@ -48,7 +49,9 @@ do
             ipv=6 ;;
         a)
             [ "${verbose}" == "true" ] && echo "> use of ${proto}4/${proto}6 will be automatically determined"
-            ipv="a"
+            ipv="a" ;;
+        H) 
+            history_file="$OPTARG" ;;
     esac
 done
 shift $(($OPTIND-1))
