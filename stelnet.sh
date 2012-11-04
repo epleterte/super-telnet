@@ -23,15 +23,11 @@ EOF
 
 ## defaults
 verbose="false"
-# default telnet port
 port=23
-# default protocol
 proto="tcp"
-# default ip version
 ipv=4
 # defaut address type
 atype="TCP4"
-# socat options
 socat_opts=""
 
 while getopts h46stua o
