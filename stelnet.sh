@@ -29,6 +29,7 @@ ipv=4
 # defaut address type
 atype="TCP4"
 socat_opts=""
+history_file="${HOME}/.stelnet_history"
 
 while getopts h46stua o
 do
@@ -79,7 +80,7 @@ case $proto in
         echo "unknown protocol $proto"; exit 1 ;;
 esac
 
-socat -d ${socat_opts} READLINE,history=$HOME/.stelnet_history \
+socat -d ${socat_opts} READLINE,history=${history_file} \
     ${atype}:${host}:${port},crnl
 
 # vim: set filetype=sh:
