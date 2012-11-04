@@ -86,4 +86,4 @@ esac
 socat -d ${socat_opts} READLINE,history=$HOME/.stelnet_history \
     ${atype}:${host}:${port},crnl
 
-# vim: set filetype shell
+# vim: set filetype=sh:
