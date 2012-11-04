@@ -1,18 +1,9 @@
 #!/bin/bash -ue
 # Super Telnet
-# Telnet for all protocols. socat is awesome!
-
-## defaults
-verbose="false"
-# default telnet port
-port=23
-# default protocol
-proto="tcp"
-ipv=4
-# defaut address type
-atype="TCP4"
-# socat options
-socat_opts=""
+# Telnet for protocols tcp, udp and sctp, both ipv4 and ipv6 supported.
+# Readline and history support.
+# socat is awesome!
+# Christian Bryn <chr.bryn@gmail.com> 2012
 
 function print_usage() {
     cat <<EOF
@@ -30,18 +21,30 @@ Usage: ${0} [-h|-4|-6|-g|-s|-u|-t] <host> <port>
 EOF
 }
 
+## defaults
+verbose="false"
+# default telnet port
+port=23
+# default protocol
+proto="tcp"
+# default ip version
+ipv=4
+# defaut address type
+atype="TCP4"
+# socat options
+socat_opts=""
 
-while getopts h46suta o
+while getopts h46stua o
 do
     case $o in
         h)
             print_usage ;;
         s)
             proto="sctp" ;;
-        u)
-            proto="udp" ;;
         t)
             proto="tcp" ;;
+        u)
+            proto="udp" ;;
         4)
             ipv=4 ;;
         6)
