@@ -44,8 +44,10 @@ do
         u)
             proto="udp" ;;
         4)
+            [ "${verbose}" == "true" ] && echo "> using IPv4"
             ipv=4 ;;
         6)
+            [ "${verbose}" == "true" ] && echo "> using IPv6"
             ipv=6 ;;
         a)
             [ "${verbose}" == "true" ] && echo "> use of ${proto}4/${proto}6 will be automatically determined"
