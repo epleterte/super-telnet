@@ -6,3 +6,7 @@ supports protocols:
     * udp, udp6
     * tcp, tcp6
     * sctp, sctp6
+
+Note: As of April 2012, the socat Debian package no longer supports readline.
+      This affects Ubuntu as of version 12.10.
+      http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=677371
